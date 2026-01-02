@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import api from "../services/api";
 import Layout from "../components/Layout";
 import {
@@ -180,7 +180,7 @@ export default function AdminBooks() {
                       </div>
                       <div className="grid grid-cols-2 gap-6">
                         <div>
-                          <label className="text-sm font-bold text-gray-700 mb-1 block">Price (₹)</label>
+                          <label className="text-sm font-bold text-gray-700 mb-1 block">Price (?)</label>
                           <input type="number" value={form.price} onChange={e => setForm({ ...form, price: e.target.value })} className="input-field" placeholder="0.00" />
                         </div>
                         <div>
@@ -210,7 +210,7 @@ export default function AdminBooks() {
                           <input type="file" onChange={handleUpload} className="absolute inset-0 opacity-0 cursor-pointer w-full h-full z-10" />
                           {form.image ? (
                             <div className="relative h-40 w-28 mx-auto shadow-lg rotate-1 group-hover:rotate-0 transition-transform duration-300">
-                              <img src={form.image.startsWith("http") ? form.image : `https://bookapp-production-3e11.up.railway.app${form.image}`} className="h-full w-full object-cover rounded-md" alt="Preview" />
+                              <img src={form.image.startsWith("http") ? form.image : `https://bookbarn-production.up.railway.app${form.image}`} className="h-full w-full object-cover rounded-md" alt="Preview" />
                               <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-md">
                                 <p className="text-white text-xs font-bold">Change</p>
                               </div>
@@ -256,7 +256,7 @@ export default function AdminBooks() {
                 <div className="relative h-56 bg-gray-100 flex items-center justify-center overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60 z-10 transition-opacity"></div>
                   <img
-                    src={b.image?.startsWith("http") ? b.image : `https://bookapp-production-3e11.up.railway.app${b.image}`}
+                    src={b.image?.startsWith("http") ? b.image : `https://bookbarn-production.up.railway.app${b.image}`}
                     alt={b.title}
                     className="h-4/5 object-cover shadow-2xl rounded-sm transform group-hover:scale-105 group-hover:-rotate-1 transition-transform duration-500 relative z-0"
                   />
@@ -291,7 +291,7 @@ export default function AdminBooks() {
                   </div>
 
                   <div className="flex items-center justify-between p-3 bg-gray-50 rounded-2xl border border-gray-100">
-                    <div className="text-xl font-black text-gray-900">₹{b.price}</div>
+                    <div className="text-xl font-black text-gray-900">?{b.price}</div>
                     <button
                       onClick={() => setStockEditing(b)}
                       className={`text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-colors ${b.stock < 5 ? "bg-red-100 text-red-700" : "bg-white text-gray-600 shadow-sm"}`}
@@ -313,6 +313,7 @@ export default function AdminBooks() {
     </Layout>
   );
 }
+
 
 
 

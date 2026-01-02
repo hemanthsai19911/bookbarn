@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ShoppingCart } from "lucide-react";
@@ -28,7 +28,7 @@ export default function BookCard({ book, onAdd }) {
               ? "https://placehold.co/300x450?text=No+Cover"
               : book.image.startsWith("http")
                 ? book.image
-                : `${import.meta.env.VITE_API_BASE || "https://bookapp-production-3e11.up.railway.app"}${book.image}`
+                : `${import.meta.env.VITE_API_BASE || "https://bookbarn-production.up.railway.app"}${book.image}`
           }
           alt={book.title}
           className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 ${isOutOfStock ? "grayscale opacity-60" : ""
@@ -83,7 +83,7 @@ export default function BookCard({ book, onAdd }) {
         <div className="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between">
           <div className="flex flex-col">
             <span className="text-xs text-gray-400 uppercase tracking-wide font-semibold">Price</span>
-            <span className="text-xl font-bold text-amber-700">₹{book.price}</span>
+            <span className="text-xl font-bold text-amber-700">?{book.price}</span>
           </div>
 
           {!isAdmin && !isDelivery && !isVendor && (
@@ -108,6 +108,7 @@ export default function BookCard({ book, onAdd }) {
     </motion.article>
   );
 }
+
 
 
 

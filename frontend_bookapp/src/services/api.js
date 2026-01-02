@@ -91,7 +91,7 @@ api.interceptors.response.use(
         originalRequest._retry = true;
 
         const res = await axios.post(
-          "https://bookapp-production-3e11.up.railway.app/user/refresh",
+          `${import.meta.env.VITE_API_BASE || "https://bookbarn-production.up.railway.app"}/user/refresh`,
           { refreshToken }
         );
 

@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { ArrowLeft, Lock, Sparkles } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -20,9 +20,9 @@ export default function ResetPassword() {
         setError('');
 
         let url = '';
-        if (userType === 'user') url = 'https://bookapp-production-3e11.up.railway.app/user/reset-password';
-        if (userType === 'vendor') url = 'https://bookapp-production-3e11.up.railway.app/vendors/reset-password';
-        if (userType === 'delivery') url = 'https://bookapp-production-3e11.up.railway.app/delivery/reset-password';
+        if (userType === 'user') url = 'https://bookbarn-production.up.railway.app/user/reset-password';
+        if (userType === 'vendor') url = 'https://bookbarn-production.up.railway.app/vendors/reset-password';
+        if (userType === 'delivery') url = 'https://bookbarn-production.up.railway.app/delivery/reset-password';
 
         try {
             await axios.post(url, { token, newPassword });
@@ -158,5 +158,6 @@ export default function ResetPassword() {
         </div>
     );
 }
+
 
 

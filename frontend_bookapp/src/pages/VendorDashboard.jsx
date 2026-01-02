@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import api from "../services/api";
 import wsClient from "../services/websocket";
 import { useNavigate } from "react-router-dom";
@@ -57,7 +57,7 @@ export default function VendorDashboard() {
 
         const startPolling = () => {
             if (pollingRef.current) return;
-            console.log('📡 Starting polling mode (30s interval)');
+            console.log('?? Starting polling mode (30s interval)');
 
             // Poll every 30 seconds
             pollingRef.current = setInterval(() => {
@@ -71,7 +71,7 @@ export default function VendorDashboard() {
             if (pollingRef.current) {
                 clearInterval(pollingRef.current);
                 pollingRef.current = null;
-                console.log('🛑 Stopped polling mode');
+                console.log('?? Stopped polling mode');
             }
         };
 
@@ -120,14 +120,14 @@ export default function VendorDashboard() {
 
     // Handle incoming WebSocket messages
     const handleWebSocketMessage = (data) => {
-        console.log('📨 Received WebSocket message:', data);
+        console.log('?? Received WebSocket message:', data);
 
         switch (data.type) {
             case 'NEW_ORDER':
                 // Add new order to the list
                 setOrders(prev => [data.payload, ...prev]);
                 // Show notification
-                setMessage(`🎉 New order received! Order #${data.payload.id}`);
+                setMessage(`?? New order received! Order #${data.payload.id}`);
                 setTimeout(() => setMessage(""), 5000);
                 // Play notification sound (optional)
                 playNotificationSound();
@@ -328,7 +328,7 @@ export default function VendorDashboard() {
                         : 'bg-amber-50 text-amber-700 border border-amber-200'
                         }`}>
                         <div className={`w-2 h-2 rounded-full ${wsConnected ? 'bg-green-500 animate-pulse' : 'bg-amber-500 animate-pulse'}`}></div>
-                        {wsConnected ? '🟢 Live Updates Active' : '� Polling Mode (30s)'}
+                        {wsConnected ? '?? Live Updates Active' : '? Polling Mode (30s)'}
                     </div>
                 </div>
 
@@ -371,7 +371,7 @@ export default function VendorDashboard() {
                             </div>
                         </div>
                         <h3 className="text-gray-500 text-sm font-bold mt-4">Portfolio Value</h3>
-                        <p className="text-3xl font-bold text-gray-900">₹{portfolioValue.toLocaleString()}</p>
+                        <p className="text-3xl font-bold text-gray-900">?{portfolioValue.toLocaleString()}</p>
                     </motion.div>
                 </div>
 
@@ -511,7 +511,7 @@ export default function VendorDashboard() {
                                                             ? "https://placehold.co/300x450?text=No+Cover"
                                                             : b.image.startsWith('http')
                                                                 ? b.image
-                                                                : `${import.meta.env.VITE_API_BASE || "https://bookapp-production-3e11.up.railway.app"}${b.image}`
+                                                                : `${import.meta.env.VITE_API_BASE || "https://bookbarn-production.up.railway.app"}${b.image}`
                                                     }
                                                     alt={b.title}
                                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -533,7 +533,7 @@ export default function VendorDashboard() {
                                             <p className="text-sm text-gray-500 mb-4">{b.author}</p>
 
                                             <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-50">
-                                                <span className="font-bold text-lg text-gray-900">₹{b.price}</span>
+                                                <span className="font-bold text-lg text-gray-900">?{b.price}</span>
                                                 <div className={`flex items-center gap-1.5 text-xs font-bold px-2 py-1 rounded-lg ${b.stock < 5 ? "bg-red-50 text-red-600" : "bg-emerald-50 text-emerald-700"}`}>
                                                     <Package size={14} /> {b.stock} Left
                                                 </div>
@@ -561,7 +561,7 @@ export default function VendorDashboard() {
                                                 <div className="flex items-center gap-3">
                                                     <span className="text-lg font-bold text-gray-900">Order #{o.id}</span>
                                                     <span className="text-sm font-medium text-gray-400 flex items-center gap-1">
-                                                        •  <Clock size={14} /> {getTimeAgo(o.createdAt || o.timestamp || (o.history && o.history[0]?.timestamp))}
+                                                        �  <Clock size={14} /> {getTimeAgo(o.createdAt || o.timestamp || (o.history && o.history[0]?.timestamp))}
                                                     </span>
                                                     <span className={`px-3 py-1 rounded-full text-xs font-bold ${o.status === 'PENDING' ? 'bg-amber-100 text-amber-700' :
                                                         o.status === 'READY_FOR_DELIVERY' ? 'bg-blue-100 text-blue-700' :
@@ -571,7 +571,7 @@ export default function VendorDashboard() {
                                                         {o.status.replace(/_/g, " ")}
                                                     </span>
                                                 </div>
-                                                <p className="text-sm text-gray-600 font-medium">Customer: {o.address} • {o.phone}</p>
+                                                <p className="text-sm text-gray-600 font-medium">Customer: {o.address} � {o.phone}</p>
                                                 <div className="flex flex-wrap gap-2 mt-2">
                                                     {o.items.map((item, idx) => (
                                                         <span key={idx} className="text-xs bg-gray-50 text-gray-600 px-2 py-1 rounded border border-gray-100">
@@ -582,7 +582,7 @@ export default function VendorDashboard() {
                                             </div>
 
                                             <div className="flex flex-col justify-center items-end gap-3">
-                                                <p className="text-xl font-bold text-gray-900">₹{o.total}</p>
+                                                <p className="text-xl font-bold text-gray-900">?{o.total}</p>
 
                                                 {/* View Details Button */}
                                                 <button
@@ -662,7 +662,7 @@ export default function VendorDashboard() {
                                     <div className="col-span-2 md:col-span-1 space-y-4">
                                         <div className="grid grid-cols-2 gap-4">
                                             <div>
-                                                <label className="text-sm font-bold text-gray-700 mb-1 block">Price (₹)</label>
+                                                <label className="text-sm font-bold text-gray-700 mb-1 block">Price (?)</label>
                                                 <input name="price" type="number" value={formData.price} className="input-field" onChange={handleInputChange} required placeholder="0.00" />
                                             </div>
                                             <div>
@@ -676,7 +676,7 @@ export default function VendorDashboard() {
                                                 <input type="file" onChange={handleUpload} className="absolute inset-0 opacity-0 cursor-pointer w-full h-full z-10" />
                                                 {formData.image ? (
                                                     <div className="relative h-40 w-28 mx-auto shadow-lg rotate-1 group-hover:rotate-0 transition-transform duration-300">
-                                                        <img src={formData.image.startsWith("http") ? formData.image : `${import.meta.env.VITE_API_BASE || "https://bookapp-production-3e11.up.railway.app"}${formData.image}`} className="h-full w-full object-cover rounded-md" alt="Preview" />
+                                                        <img src={formData.image.startsWith("http") ? formData.image : `${import.meta.env.VITE_API_BASE || "https://bookbarn-production.up.railway.app"}${formData.image}`} className="h-full w-full object-cover rounded-md" alt="Preview" />
                                                         <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-md">
                                                             <p className="text-white text-xs font-bold">Change</p>
                                                         </div>
@@ -713,6 +713,7 @@ export default function VendorDashboard() {
         </div>
     );
 }
+
 
 
 

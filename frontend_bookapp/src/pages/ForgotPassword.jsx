@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { ArrowLeft, Send, Loader2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -24,7 +24,7 @@ export default function ForgotPassword() {
         setError('');
 
         try {
-            await axios.post('https://bookapp-production-3e11.up.railway.app/otp/send-reset', { email });
+            await axios.post('https://bookbarn-production.up.railway.app/otp/send-reset', { email });
             setMessage('OTP sent to your email!');
             setStep(2);
         } catch (err) {
@@ -39,7 +39,7 @@ export default function ForgotPassword() {
         setError('');
 
         try {
-            const res = await axios.post('https://bookapp-production-3e11.up.railway.app/otp/verify', {
+            const res = await axios.post('https://bookbarn-production.up.railway.app/otp/verify', {
                 email,
                 otp: otpValue
             });
@@ -72,9 +72,9 @@ export default function ForgotPassword() {
         setError('');
 
         let url = '';
-        if (userType === 'user') url = 'https://bookapp-production-3e11.up.railway.app/user/reset-password';
-        if (userType === 'vendor') url = 'https://bookapp-production-3e11.up.railway.app/vendors/reset-password';
-        if (userType === 'delivery') url = 'https://bookapp-production-3e11.up.railway.app/delivery/reset-password';
+        if (userType === 'user') url = 'https://bookbarn-production.up.railway.app/user/reset-password';
+        if (userType === 'vendor') url = 'https://bookbarn-production.up.railway.app/vendors/reset-password';
+        if (userType === 'delivery') url = 'https://bookbarn-production.up.railway.app/delivery/reset-password';
 
         try {
             // Note: Backend reset-password endpoints need to be updated to accept email+password instead of token
@@ -95,7 +95,7 @@ export default function ForgotPassword() {
     const resendOTP = async () => {
         setLoading(true);
         try {
-            await axios.post('https://bookapp-production-3e11.up.railway.app/otp/resend', {
+            await axios.post('https://bookbarn-production.up.railway.app/otp/resend', {
                 email,
                 purpose: 'Password Reset'
             });
@@ -181,7 +181,7 @@ export default function ForgotPassword() {
                 {step === 2 && (
                     <div className="space-y-6">
                         <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-800 text-center">
-                            <p className="font-semibold mb-1">ðŸ“§ Check your email</p>
+                            <p className="font-semibold mb-1">📧 Check your email</p>
                             <p className="text-xs">Enter the 6-digit code sent to <strong>{email}</strong></p>
                         </div>
 
@@ -204,7 +204,7 @@ export default function ForgotPassword() {
                         </div>
 
                         <button onClick={() => setStep(1)} className="w-full text-gray-600 py-2 hover:text-gray-900">
-                            † Change email
+                            �� Change email
                         </button>
                     </div>
                 )}
@@ -250,6 +250,7 @@ export default function ForgotPassword() {
         </div>
     );
 }
+
 
 
 

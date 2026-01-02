@@ -1,10 +1,10 @@
-﻿import api from "./api";
+import api from "./api";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 
 
 export async function login(input, password) {
-  const res = await axios.post("https://bookapp-production-3e11.up.railway.app/user/login", { input, password });
+  const res = await axios.post("https://bookbarn-production.up.railway.app/user/login", { input, password });
 
   const data = res.data;
   console.log("LOGIN RESPONSE:", res.data);
@@ -69,7 +69,7 @@ export async function refreshAccessToken() {
   if (!refreshToken) return logout();
 
   try {
-    const res = await axios.post("https://bookapp-production-3e11.up.railway.app/user/refresh", {
+    const res = await axios.post("https://bookbarn-production.up.railway.app/user/refresh", {
       refreshToken
     });
 
@@ -83,4 +83,5 @@ export async function refreshAccessToken() {
     window.location.href = "/login";
   }
 }
+
 

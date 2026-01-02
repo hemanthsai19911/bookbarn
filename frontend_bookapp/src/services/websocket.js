@@ -12,7 +12,7 @@ class WebSocketClient {
     }
 
     connect(onConnected, onError) {
-        const API_BASE = import.meta.env.VITE_API_BASE || 'https://bookapp-production-3e11.up.railway.app';
+        const API_BASE = import.meta.env.VITE_API_BASE || 'https://bookbarn-production.up.railway.app';
         const WS_URL = `${API_BASE}/ws`;
 
         // Create client configuration
@@ -132,3 +132,4 @@ class WebSocketClient {
 const wsClient = new WebSocketClient();
 
 export default wsClient;
+

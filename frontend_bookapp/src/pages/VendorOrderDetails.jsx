@@ -170,7 +170,7 @@ export default function VendorOrderDetails() {
                                             <div className="w-16 h-20 bg-gray-200 rounded-lg overflow-hidden flex-shrink-0">
                                                 {item.book?.image ? (
                                                     <img
-                                                        src={item.book.image.startsWith('http') ? item.book.image : `${import.meta.env.VITE_API_BASE || 'https://bookapp-production-3e11.up.railway.app'}${item.book.image}`}
+                                                        src={item.book.image.startsWith('http') ? item.book.image : `${import.meta.env.VITE_API_BASE || 'https://bookbarn-production.up.railway.app'}${item.book.image}`}
                                                         alt={item.book?.title}
                                                         className="w-full h-full object-cover"
                                                         onError={(e) => { e.target.src = 'https://placehold.co/100x150?text=Book'; }}
@@ -333,3 +333,4 @@ export default function VendorOrderDetails() {
         </div>
     );
 }
+

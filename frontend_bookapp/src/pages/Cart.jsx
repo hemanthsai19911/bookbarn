@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import api from "../services/api";
 import { Link, useNavigate } from "react-router-dom";
 import { Trash2, ShoppingBag, ArrowRight, Minus, Plus, ShoppingCart } from "lucide-react";
@@ -133,7 +133,7 @@ export default function Cart() {
                   >
                     <div className="w-20 h-28 flex-shrink-0 bg-gray-100 rounded-lg overflow-hidden">
                       <img
-                        src={book.image?.startsWith("http") ? book.image : `${import.meta.env.VITE_API_BASE || "https://bookapp-production-3e11.up.railway.app"}${book.image}`}
+                        src={book.image?.startsWith("http") ? book.image : `${import.meta.env.VITE_API_BASE || "https://bookbarn-production.up.railway.app"}${book.image}`}
                         alt={book.title}
                         className="w-full h-full object-cover"
                         onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/150x200?text=Book+Cover"; }}
@@ -172,8 +172,8 @@ export default function Cart() {
                           </button>
                         </div>
                         <div className="text-right">
-                          <p className="font-bold text-lg text-amber-700">₹ {book.price * item.quantity}</p>
-                          <p className="text-xs text-gray-400">₹ {book.price} / each</p>
+                          <p className="font-bold text-lg text-amber-700">? {book.price * item.quantity}</p>
+                          <p className="text-xs text-gray-400">? {book.price} / each</p>
                         </div>
                       </div>
                     </div>
@@ -191,22 +191,22 @@ export default function Cart() {
               <div className="space-y-3 mb-6">
                 <div className="flex justify-between text-gray-600">
                   <span>Subtotal</span>
-                  <span>₹{subtotal}</span>
+                  <span>?{subtotal}</span>
                 </div>
                 <div className="flex justify-between text-gray-600">
                   <span>Shipping estimate</span>
                   <span className={shipping === 0 ? "text-green-600 font-medium" : ""}>
-                    {shipping === 0 ? "Free" : `₹${shipping}`}
+                    {shipping === 0 ? "Free" : `?${shipping}`}
                   </span>
                 </div>
                 <div className="flex justify-between text-gray-600">
                   <span>Tax (5%)</span>
-                  <span>₹{tax}</span>
+                  <span>?{tax}</span>
                 </div>
                 <div className="h-px bg-gray-100 my-2"></div>
                 <div className="flex justify-between text-xl font-bold text-gray-900">
                   <span>Order Total</span>
-                  <span>₹{total}</span>
+                  <span>?{total}</span>
                 </div>
               </div>
 
@@ -235,6 +235,7 @@ export default function Cart() {
     </div>
   );
 }
+
 
 
 

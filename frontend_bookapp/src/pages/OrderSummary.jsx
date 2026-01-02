@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import api from "../services/api";
 import Layout from "../components/Layout";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -100,7 +100,7 @@ export default function OrderSummary() {
                     <div key={idx} className="flex gap-4 items-center">
                       <img
                         referrerPolicy="no-referrer"
-                        src={details.image?.startsWith('http') ? details.image : `https://bookapp-production-3e11.up.railway.app${details.image}`}
+                        src={details.image?.startsWith('http') ? details.image : `https://bookbarn-production.up.railway.app${details.image}`}
                         className="w-16 h-20 object-cover rounded-md shadow-sm bg-gray-100"
                         alt=""
                         onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/150x200?text=N/A"; }}
@@ -110,7 +110,7 @@ export default function OrderSummary() {
                         <p className="text-sm text-gray-500">Qty: {item.quantity}</p>
                       </div>
                       <div className="font-bold text-lg text-amber-700">
-                        ₹ {details.price * item.quantity}
+                        ? {details.price * item.quantity}
                       </div>
                     </div>
                   );
@@ -123,22 +123,22 @@ export default function OrderSummary() {
               <div className="space-y-3 mb-6">
                 <div className="flex justify-between text-gray-600">
                   <span>Subtotal</span>
-                  <span>₹{subtotal}</span>
+                  <span>?{subtotal}</span>
                 </div>
                 <div className="flex justify-between text-gray-600">
                   <span>Shipping</span>
                   <span className={shipping === 0 ? "text-green-600 font-medium" : ""}>
-                    {shipping === 0 ? "Free" : `₹${shipping}`}
+                    {shipping === 0 ? "Free" : `?${shipping}`}
                   </span>
                 </div>
                 <div className="flex justify-between text-gray-600">
                   <span>Tax (5%)</span>
-                  <span>₹{tax}</span>
+                  <span>?{tax}</span>
                 </div>
                 <div className="h-px bg-gray-200 my-2"></div>
                 <div className="flex justify-between items-center">
                   <span className="text-gray-900 font-bold text-lg">Total Amount</span>
-                  <span className="text-3xl font-black text-gray-900">₹{total}</span>
+                  <span className="text-3xl font-black text-gray-900">?{total}</span>
                 </div>
               </div>
 
@@ -165,3 +165,4 @@ export default function OrderSummary() {
     </Layout>
   );
 }
+

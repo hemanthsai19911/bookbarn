@@ -1,4 +1,4 @@
-﻿// components/FeaturedCarousel.jsx
+// components/FeaturedCarousel.jsx
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
@@ -43,7 +43,7 @@ export default function FeaturedCarousel({ items = [] }) {
                   b.image
                     ? (b.image.startsWith("http")
                       ? b.image
-                      : `https://bookapp-production-3e11.up.railway.app/${b.image}`)
+                      : `https://bookbarn-production.up.railway.app/${b.image}`)
                     : "/images/book-placeholder.png"
                 }
                 alt={b.title}
@@ -68,5 +68,6 @@ export default function FeaturedCarousel({ items = [] }) {
     </div>
   );
 }
+
 
 

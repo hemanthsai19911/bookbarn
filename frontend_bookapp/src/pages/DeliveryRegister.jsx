@@ -1,4 +1,4 @@
-﻿import React, { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { Truck, Lock, Mail, Phone, MapPin, User, ArrowRight, Loader2, Send } from "lucide-react";
@@ -44,7 +44,7 @@ export default function DeliveryRegister() {
     if (!form.phone) {
       err.phone = "Phone number is required";
     } else if (!phoneRegex.test(form.phone)) {
-      err.phone = "Phone must be 10 digits (start 6€“9)";
+      err.phone = "Phone must be 10 digits (start 6��9)";
     }
 
     if (!form.area.trim()) err.area = "Delivery area is required";
@@ -68,7 +68,7 @@ export default function DeliveryRegister() {
     setErrors({});
 
     try {
-      await axios.post("https://bookapp-production-3e11.up.railway.app/otp/send-registration", {
+      await axios.post("https://bookbarn-production.up.railway.app/otp/send-registration", {
         email: form.email
       });
 
@@ -94,14 +94,14 @@ export default function DeliveryRegister() {
 
     try {
       // Verify OTP
-      const verifyRes = await axios.post("https://bookapp-production-3e11.up.railway.app/otp/verify", {
+      const verifyRes = await axios.post("https://bookbarn-production.up.railway.app/otp/verify", {
         email: form.email,
         otp: otpValue
       });
 
       if (verifyRes.data.verified) {
         // OTP verified, proceed with registration
-        await axios.post("https://bookapp-production-3e11.up.railway.app/delivery/register", form);
+        await axios.post("https://bookbarn-production.up.railway.app/delivery/register", form);
 
         const toast = document.createElement("div");
         toast.className = "fixed top-5 right-5 bg-blue-600 text-white px-6 py-3 rounded-xl shadow-2xl z-[999] animate-fade-in flex items-center gap-2";
@@ -119,7 +119,7 @@ export default function DeliveryRegister() {
   async function resendOTP() {
     setLoading(true);
     try {
-      await axios.post("https://bookapp-production-3e11.up.railway.app/otp/resend", {
+      await axios.post("https://bookbarn-production.up.railway.app/otp/resend", {
         email: form.email,
         purpose: "Registration"
       });
@@ -276,7 +276,7 @@ export default function DeliveryRegister() {
             )}
 
             <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-800 text-center">
-              <p className="font-semibold mb-1">ðŸ“§ Check your email</p>
+              <p className="font-semibold mb-1">📧 Check your email</p>
               <p className="text-xs">We've sent a 6-digit code to <strong>{form.email}</strong></p>
               <p className="text-xs mt-1 text-blue-600">Code expires in 10 minutes</p>
             </div>
@@ -307,7 +307,7 @@ export default function DeliveryRegister() {
               onClick={() => setStep(1)}
               className="w-full text-gray-600 font-medium py-2 hover:text-gray-900 transition-colors"
             >
-              † Back to form
+              �� Back to form
             </button>
           </div>
         )}
@@ -320,6 +320,7 @@ export default function DeliveryRegister() {
     </div>
   );
 }
+
 
 
 

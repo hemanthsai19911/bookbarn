@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import api from "../services/api";
 import { motion } from "framer-motion";
@@ -105,7 +105,7 @@ export default function BookDetail() {
                     ? "https://placehold.co/400x600?text=No+Cover"
                     : book.image.startsWith("http")
                       ? book.image
-                      : `${import.meta.env.VITE_API_BASE || "https://bookapp-production-3e11.up.railway.app"}${book.image}`
+                      : `${import.meta.env.VITE_API_BASE || "https://bookbarn-production.up.railway.app"}${book.image}`
                 }
                 alt={book.title}
                 className="relative w-3/5 shadow-2xl rounded-r-lg transform group-hover:scale-105 transition-transform duration-500"
@@ -139,8 +139,8 @@ export default function BookDetail() {
               )}
 
               <div className="flex items-end gap-4 mb-8">
-                <div className="text-5xl font-black text-amber-700">₹{book.price}</div>
-                {book.oldPrice && <div className="text-xl text-gray-400 line-through mb-1">₹{book.oldPrice}</div>}
+                <div className="text-5xl font-black text-amber-700">?{book.price}</div>
+                {book.oldPrice && <div className="text-xl text-gray-400 line-through mb-1">?{book.oldPrice}</div>}
               </div>
 
               {/* Stock Badge */}
@@ -190,6 +190,7 @@ export default function BookDetail() {
     </div>
   );
 }
+
 
 
 
