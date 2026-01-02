@@ -95,7 +95,8 @@ public class SecurityConfig {
 	public CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration configuration = new CorsConfiguration();
 		configuration.setAllowedOrigins(
-				java.util.List.of("http://localhost:5173", "http://localhost:3000", "https://bookbarnkhs.netlify.app"));
+				java.util.List.of("http://localhost:5173", "http://localhost:3000", "https://bookbarnkhs.netlify.app",
+						"https://cute-tanuki-467368.netlify.app"));
 		configuration.setAllowedMethods(java.util.List.of("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
 		configuration.setAllowedHeaders(java.util.List.of("*"));
 		configuration.setAllowCredentials(true);
