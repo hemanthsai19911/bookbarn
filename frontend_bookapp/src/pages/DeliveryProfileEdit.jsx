@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import api from "../services/api";
 import axios from "axios";
 import { User, Phone, MapPin, Save, ArrowLeft, Lock, Mail } from "lucide-react";
@@ -220,7 +220,7 @@ export default function DeliveryProfileEdit() {
               <div className="pt-4 border-t border-gray-100">
                 <label className="block text-sm font-bold text-gray-700 mb-1.5">
                   New Password (Optional)
-                  <span className="text-xs font-normal text-blue-600 ml-2">🔒 Requires OTP verification</span>
+                  <span className="text-xs font-normal text-blue-600 ml-2">ðŸ”’ Requires OTP verification</span>
                 </label>
                 <div className="relative">
                   <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
@@ -234,7 +234,7 @@ export default function DeliveryProfileEdit() {
                 </div>
                 {form.password && (
                   <p className="text-xs text-blue-600 mt-1 ml-1">
-                    ��️ Changing password will require OTP verification
+                    š ï¸ Changing password will require OTP verification
                   </p>
                 )}
               </div>
@@ -275,7 +275,7 @@ export default function DeliveryProfileEdit() {
 
             <div className="space-y-6">
               <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-800 text-center">
-                <p className="font-semibold mb-1">📧 Check your email</p>
+                <p className="font-semibold mb-1">ðŸ“§ Check your email</p>
                 <p className="text-xs">Code expires in 10 minutes</p>
               </div>
 

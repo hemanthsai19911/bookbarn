@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+﻿import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import api from "../services/api";
 import axios from "axios";
@@ -46,7 +46,7 @@ export default function Register() {
     if (!form.phone) {
       err.phone = "Phone number is required";
     } else if (!phoneRegex.test(form.phone)) {
-      err.phone = "Phone must be 10 digits (start 6��9)";
+      err.phone = "Phone must be 10 digits (start 6€“9)";
     }
 
     // Strong password validation
@@ -276,7 +276,7 @@ export default function Register() {
             )}
 
             <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-800 text-center">
-              <p className="font-semibold mb-1">📧 Check your email</p>
+              <p className="font-semibold mb-1">ðŸ“§ Check your email</p>
               <p className="text-xs">We've sent a 6-digit code to <strong>{form.email}</strong></p>
               <p className="text-xs mt-1 text-blue-600">Code expires in 10 minutes</p>
             </div>
@@ -307,7 +307,7 @@ export default function Register() {
               onClick={() => setStep(1)}
               className="w-full text-gray-600 font-medium py-2 hover:text-gray-900 transition-colors"
             >
-              �� Back to form
+              † Back to form
             </button>
           </div>
         )}

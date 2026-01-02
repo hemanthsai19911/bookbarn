@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+ï»¿import React, { useEffect, useState } from "react";
 import api from "../services/api";
 import wsClient from "../services/websocket";
 import { useNavigate } from "react-router-dom";
@@ -561,7 +561,7 @@ export default function VendorDashboard() {
                                                 <div className="flex items-center gap-3">
                                                     <span className="text-lg font-bold text-gray-900">Order #{o.id}</span>
                                                     <span className="text-sm font-medium text-gray-400 flex items-center gap-1">
-                                                        •  <Clock size={14} /> {getTimeAgo(o.createdAt || o.timestamp || (o.history && o.history[0]?.timestamp))}
+                                                        â€¢  <Clock size={14} /> {getTimeAgo(o.createdAt || o.timestamp || (o.history && o.history[0]?.timestamp))}
                                                     </span>
                                                     <span className={`px-3 py-1 rounded-full text-xs font-bold ${o.status === 'PENDING' ? 'bg-amber-100 text-amber-700' :
                                                         o.status === 'READY_FOR_DELIVERY' ? 'bg-blue-100 text-blue-700' :
@@ -571,7 +571,7 @@ export default function VendorDashboard() {
                                                         {o.status.replace(/_/g, " ")}
                                                     </span>
                                                 </div>
-                                                <p className="text-sm text-gray-600 font-medium">Customer: {o.address} • {o.phone}</p>
+                                                <p className="text-sm text-gray-600 font-medium">Customer: {o.address} â€¢ {o.phone}</p>
                                                 <div className="flex flex-wrap gap-2 mt-2">
                                                     {o.items.map((item, idx) => (
                                                         <span key={idx} className="text-xs bg-gray-50 text-gray-600 px-2 py-1 rounded border border-gray-100">

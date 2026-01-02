@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import axios from 'axios';
 import { ArrowLeft, Send, Loader2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -181,7 +181,7 @@ export default function ForgotPassword() {
                 {step === 2 && (
                     <div className="space-y-6">
                         <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-800 text-center">
-                            <p className="font-semibold mb-1">📧 Check your email</p>
+                            <p className="font-semibold mb-1">ðŸ“§ Check your email</p>
                             <p className="text-xs">Enter the 6-digit code sent to <strong>{email}</strong></p>
                         </div>
 
@@ -204,7 +204,7 @@ export default function ForgotPassword() {
                         </div>
 
                         <button onClick={() => setStep(1)} className="w-full text-gray-600 py-2 hover:text-gray-900">
-                            �� Change email
+                            † Change email
                         </button>
                     </div>
                 )}

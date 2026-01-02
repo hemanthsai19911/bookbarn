@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+﻿import React, { useEffect, useState } from "react";
 import api from "../services/api";
 import { Link, useNavigate } from "react-router-dom";
 import { Trash2, ShoppingBag, ArrowRight, Minus, Plus, ShoppingCart } from "lucide-react";

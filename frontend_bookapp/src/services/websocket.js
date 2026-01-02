@@ -1,4 +1,4 @@
-import { Client } from '@stomp/stompjs';
+﻿import { Client } from '@stomp/stompjs';
 import SockJS from 'sockjs-client';
 
 class WebSocketClient {
@@ -28,18 +28,18 @@ class WebSocketClient {
                 }
             },
             onConnect: () => {
-                console.log('✅ WebSocket Connected');
+                console.log('âœ… WebSocket Connected');
                 this.connected = true;
                 this.reconnectAttempts = 0;
                 if (onConnected) onConnected();
             },
             onStompError: (frame) => {
-                console.error('❌ WebSocket Stomp Error:', frame.headers['message']);
+                console.error('âŒ WebSocket Stomp Error:', frame.headers['message']);
                 this.connected = false;
                 if (onError) onError(frame);
             },
             onWebSocketClose: (evt) => {
-                console.log('🔌 WebSocket Disconnected');
+                console.log('ðŸ”Œ WebSocket Disconnected');
                 this.connected = false;
 
                 // If the connection was closed cleanly or due to 403, we might want to stop
@@ -60,7 +60,7 @@ class WebSocketClient {
     handleReconnect(onConnected, onError) {
         if (this.reconnectAttempts < this.maxReconnectAttempts) {
             this.reconnectAttempts++;
-            console.log(`🔄 Attempting to reconnect... (${this.reconnectAttempts}/${this.maxReconnectAttempts})`);
+            console.log(`ðŸ”„ Attempting to reconnect... (${this.reconnectAttempts}/${this.maxReconnectAttempts})`);
 
             // Exponential backoff
             const delay = this.reconnectDelay * Math.pow(1.5, this.reconnectAttempts - 1);
@@ -72,7 +72,7 @@ class WebSocketClient {
                 }
             }, delay);
         } else {
-            console.error('❌ Max reconnection attempts reached - Stopping WebSocket');
+            console.error('âŒ Max reconnection attempts reached - Stopping WebSocket');
             // Notify the caller that connection failed permanently so they can fallback to polling
             if (onError) onError(new Error("Max reconnection attempts reached"));
         }
@@ -80,7 +80,7 @@ class WebSocketClient {
 
     subscribe(destination, callback) {
         if (!this.client || !this.connected) {
-            console.warn('⚠️ WebSocket not connected. Subscription will be queued.');
+            console.warn('âš ï¸ WebSocket not connected. Subscription will be queued.');
             // Queue subscription for when connection is established
             setTimeout(() => this.subscribe(destination, callback), 1000);
             return null;
@@ -96,7 +96,7 @@ class WebSocketClient {
         });
 
         this.subscriptions.set(destination, subscription);
-        console.log(`📡 Subscribed to: ${destination}`);
+        console.log(`ðŸ“¡ Subscribed to: ${destination}`);
         return subscription;
     }
 
@@ -105,7 +105,7 @@ class WebSocketClient {
         if (subscription) {
             subscription.unsubscribe();
             this.subscriptions.delete(destination);
-            console.log(`🔕 Unsubscribed from: ${destination}`);
+            console.log(`ðŸ”• Unsubscribed from: ${destination}`);
         }
     }
 
@@ -119,7 +119,7 @@ class WebSocketClient {
 
             this.client.deactivate();
             this.connected = false;
-            console.log('👋 WebSocket Disconnected');
+            console.log('ðŸ‘‹ WebSocket Disconnected');
         }
     }
 

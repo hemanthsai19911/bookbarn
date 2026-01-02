@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+﻿import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import api from '../services/api';
 import {
@@ -187,13 +187,13 @@ export default function VendorOrderDetails() {
                                                 <p className="text-sm text-gray-600">{item.book?.author || 'Unknown Author'}</p>
                                                 <div className="flex items-center gap-4 mt-2">
                                                     <span className="text-sm text-gray-500">Qty: {item.quantity}</span>
-                                                    <span className="text-sm font-bold text-gray-900">₹{item.book?.price || 0}</span>
+                                                    <span className="text-sm font-bold text-gray-900">â‚¹{item.book?.price || 0}</span>
                                                 </div>
                                             </div>
 
                                             <div className="text-right">
                                                 <p className="text-lg font-bold text-gray-900">
-                                                    ₹{(item.book?.price || 0) * item.quantity}
+                                                    â‚¹{(item.book?.price || 0) * item.quantity}
                                                 </p>
                                             </div>
                                         </div>
@@ -204,7 +204,7 @@ export default function VendorOrderDetails() {
                                 <div className="mt-6 pt-6 border-t border-gray-200">
                                     <div className="flex justify-between items-center">
                                         <span className="text-lg font-bold text-gray-900">Order Total</span>
-                                        <span className="text-2xl font-bold text-amber-600">₹{order.total}</span>
+                                        <span className="text-2xl font-bold text-amber-600">â‚¹{order.total}</span>
                                     </div>
                                 </div>
                             </div>
