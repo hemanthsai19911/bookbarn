@@ -2,7 +2,7 @@
 import { logout } from "./auth";
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE || "https://bookapp-production-3e11.up.railway.app",
+  baseURL: import.meta.env.VITE_API_BASE || "https://bookbarn-production.up.railway.app/",
 });
 
 // -----------------------------------------------------------
